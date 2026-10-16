@@ -1,6 +1,6 @@
 # 人生决策 skill（life-decision-guide）
 
-让 AI 助手照《高性价比人生指南》回答具体问题：该不该做、值不值、怎么选、出事了先做什么、能领哪笔钱、这么干犯不犯法。
+让 AI 助手照《高性价比人生指南》回答具体问题：该不该做、值不值、怎么选、出事了先做什么、能领哪笔钱、这么干犯不犯法。这一版是马来西亚改编，原文仓库是 [eternity4719/HowToLiveBetter](https://github.com/eternity4719/HowToLiveBetter)。未改写的节仍是中国大陆口径，回答时要说明。
 
 它做的事只有一件：**先把相关条目从正文里查出来，再照书的算账方式排序回答**，每条注明出自第几节第几条。查不到就说查不到，不凭记忆编数字。
 
@@ -13,7 +13,7 @@
 想在任何目录下都能用，复制到个人 skill 目录：
 
 ```bash
-mkdir -p ~/.claude/skills/life-decision-guide && curl -fsSL -o ~/.claude/skills/life-decision-guide/SKILL.md "https://raw.githubusercontent.com/eternity4719/HowToLiveBetter/main/skills/life-decision-guide/SKILL.md"
+mkdir -p ~/.claude/skills/life-decision-guide && curl -fsSL -o ~/.claude/skills/life-decision-guide/SKILL.md "https://raw.githubusercontent.com/ikigaiwif606-acc/HowToLiveBetter/main/skills/life-decision-guide/SKILL.md"
 ```
 
 之后直接问「每天通勤两小时值不值」「朋友让我替他担保，签不签」就会触发；也可以显式说「用 life-decision-guide 回答」。
@@ -25,7 +25,7 @@ mkdir -p ~/.claude/skills/life-decision-guide && curl -fsSL -o ~/.claude/skills/
 想在任何目录下都能用，复制到 Codex 的个人 skill 目录 `~/.agents/skills`：
 
 ```bash
-mkdir -p ~/.agents/skills/life-decision-guide && curl -fsSL -o ~/.agents/skills/life-decision-guide/SKILL.md "https://raw.githubusercontent.com/eternity4719/HowToLiveBetter/main/skills/life-decision-guide/SKILL.md"
+mkdir -p ~/.agents/skills/life-decision-guide && curl -fsSL -o ~/.agents/skills/life-decision-guide/SKILL.md "https://raw.githubusercontent.com/ikigaiwif606-acc/HowToLiveBetter/main/skills/life-decision-guide/SKILL.md"
 ```
 
 之后直接问问题就会按描述自动触发，也可以输入 `$life-decision-guide` 显式调用。注意是 `$` 不是 `/`，新版 Codex 输入 `/life-decision-guide` 会报 `Unrecognized command`。没出现就重启一次 Codex。
@@ -37,7 +37,7 @@ mkdir -p ~/.agents/skills/life-decision-guide && curl -fsSL -o ~/.agents/skills/
 本地有这个仓库就读本地的 `book/`；没有就现取：
 
 ```bash
-git clone --depth 1 https://github.com/eternity4719/HowToLiveBetter.git "${TMPDIR:-/tmp}/hltb"
+git clone --depth 1 https://github.com/ikigaiwif606-acc/HowToLiveBetter.git "${TMPDIR:-/tmp}/hltb"
 ```
 
 整本 1.3 MB，浅克隆一次几秒。取不到网络就如实说取不到，不替代正文。
