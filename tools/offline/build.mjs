@@ -51,9 +51,10 @@ html = html
   .replaceAll('href="book/"', `href="${REPO}/tree/main/book"`)
   .replaceAll('<a class="title" href="./"', `<a class="title" href="${SITE}"`);
 
-// 侧栏广告图和赞赏码转 data URI，否则离线打开是个裂图
+// 侧栏广告图和赞赏码转 data URI，否则离线打开是个裂图。
+// 页面上没有的图跳过：改编拿掉侧栏广告之后，ads/mcyyy-side.webp 还在，但 index.html 不再引用。
 for (const [img, mime] of [['ads/mcyyy-side.webp', 'image/webp'], ['ads/wechat-reward.png', 'image/png']]) {
-  must(`src="${img}"`, `图片 ${img}`);
+  if (!html.includes(`src="${img}"`)) continue;
   const data = readFileSync(resolve(ROOT, img)).toString('base64');
   html = html.replace(`src="${img}"`, `src="data:${mime};base64,${data}"`);
 }
